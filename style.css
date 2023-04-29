@@ -1,0 +1,93 @@
+body{
+    font-family: Comfortaa, Arial;
+    letter-spacing: 2px;
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border:1px solid black;
+    padding:4px 4px 24px;
+}
+form label {
+    font-size: 24px;
+}
+form input, form button, button {
+    width: 50%;
+    padding: 8px;
+    font-size: 18px;
+    transition: transform .1s linear;
+    outline: 0;
+}
+form input:focus{   
+    transform:translateY(-.09cm) skew(1deg);
+    box-shadow: 0 .19cm 1px 0px black ;
+}
+form button, button{
+    width: 25%;
+    background-color: black;
+    color: white;
+    transform:translateY(-.09cm) skew(1deg);
+    box-shadow: 0 .14cm 1px 0px red ;
+    transition: box-shadow linear .1s;
+    transition: transform linear .1s;
+}
+.Answer{
+    border: 1px solid black;
+    display: flex;
+    /* justify-content: space-between; */
+}
+.AnswerDescription{
+    padding: 4px;
+    flex: 0 0 50%;
+    background-color: rgb(255, 61, 40);
+    position: relative;
+    min-height: 400px;
+}
+.AnswerDescription p{
+    font-size: 20px;
+}
+.AnswerDescription button{
+    position: absolute;
+    top:50%;
+    left: 36%;;
+    box-shadow: 0 .14cm 1px 0px white ;
+}
+.AnswerImg{
+    background-color: rgb(17, 176, 160);
+    flex: 0 0 49.5%;
+    min-height: 400px;
+    display: grid;
+    place-items:center
+}
+.AnswerImg img{
+    height: auto;
+}
+@media (max-width: 948px){
+    .AnswerDescription button{
+        min-width: fit-content;
+        top: unset;
+        bottom: 15%;
+    }
+}
+@media (max-width: 860px){
+    .AnswerImg img{
+        width: 70%;
+        height: auto;
+    }
+}
+@media (max-width: 670px){
+    form button{
+        min-width: fit-content;
+        font-size: 14px;
+    }
+    .Answer{
+        flex-direction: column;
+    }
+}
+@media (max-width: 425px){
+    .AnswerDescription button{
+        left: 29%;;
+    }
+}
