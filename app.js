@@ -3,7 +3,9 @@ const input = document.querySelector("input")
 const output = document.querySelector("#output")
 const p = document.querySelector("#description")
 const img = document.querySelector("img")
+const form = document.querySelector('form');
 listItems = ["Waffel", "Pizza", "Burger", "Donuts", "Bakery", "Watermelon"]
+button[1].style.opacity = 0
 const descriptions = {
     "Waffel": "Waffle - A pancake's crispy cousin that always brings a smile to your face with its delicious little square pockets just waiting to be filled with syrup and butter.",
     "Pizza": "Pizza - A magical circle of love and cheese that brings people together, unless you're lactose intolerant, in which case it brings you closer to a toilet.",
@@ -44,18 +46,23 @@ function buttonAnimation1() {
         button[1].style.transform = 'translateY(-.09cm) skew(1deg)';
     }, 250);
 }
-button[1].style.opacity = 0
+
 function Generate() {
+    buttonAnimation()
     inputValue = input.value
     inputValue = toTitleCase(inputValue)
-    element = getRandomElement(listItems)
-    element = getRandomElement(listItems);
-    output.innerHTML = `your element is ${inputValue}'s ${element}`
-    p.innerHTML = `${descriptions[element]}`
-    img.src = `${descriptionImg[element]}`
-    button[1].style.opacity = 1
+    console.log(inputValue)
+    setTimeout(() => {
+        element = getRandomElement(listItems)
+        output.innerHTML = `your element is ${inputValue}'s ${element}`
+        p.innerHTML = `${descriptions[element]}`
+        img.src = `${descriptionImg[element]}`
+        button[1].style.opacity = 1
+    }, 10);
 }
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+});
 button[0].addEventListener("click", Generate)
-button[0].addEventListener("click", buttonAnimation);
 button[1].addEventListener("click", Generate)
 button[1].addEventListener("click", buttonAnimation1);
